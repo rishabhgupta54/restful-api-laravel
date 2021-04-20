@@ -13,34 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::middleware('auth:api')->group(function() {
-    Route::resource('buyers', \App\Http\Controllers\Buyer\BuyerController::class)->only([
-        'index',
-        'show',
-    ]);
+Route::middleware('auth:api')->group(function() {
 
-    Route::resource('categories', \App\Http\Controllers\Category\CategoryController::class)->except([
-        'create',
-        'edit',
-    ]);
+});
 
-    Route::resource('products', \App\Http\Controllers\Product\ProductController::class)->only([
-        'index',
-        'show',
-    ]);
+Route::resource('buyers', \App\Http\Controllers\Buyer\BuyerController::class)->only([
+    'index',
+    'show',
+]);
 
-    Route::resource('sellers', \App\Http\Controllers\Seller\SellerController::class)->only([
-        'index',
-        'show',
-    ]);
+Route::resource('categories', \App\Http\Controllers\Category\CategoryController::class)->except([
+    'create',
+    'edit',
+]);
 
-    Route::resource('transactions', \App\Http\Controllers\Transaction\TransactionController::class)->only([
-        'index',
-        'show',
-    ]);
+Route::resource('products', \App\Http\Controllers\Product\ProductController::class)->only([
+    'index',
+    'show',
+]);
 
-    Route::resource('users', \App\Http\Controllers\User\UserController::class)->except([
-        'create',
-        'edit',
-    ]);
-//});
+Route::resource('sellers', \App\Http\Controllers\Seller\SellerController::class)->only([
+    'index',
+    'show',
+]);
+
+Route::resource('transactions', \App\Http\Controllers\Transaction\TransactionController::class)->only([
+    'index',
+    'show',
+]);
+
+Route::resource('users', \App\Http\Controllers\User\UserController::class)->except([
+    'create',
+    'edit',
+]);

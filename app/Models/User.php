@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 class User extends Authenticatable {
     use HasFactory, Notifiable;
 
+    protected $table = 'users';
+
     const VERIFIED_USER = 1;
     const UNVERIFIED_USER = 0;
 

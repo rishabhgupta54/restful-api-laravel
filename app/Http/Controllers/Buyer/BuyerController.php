@@ -43,11 +43,8 @@ class BuyerController extends APIController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-        $buyers = Buyer::has('transactions')->findOrFail($id);
-
-        return $this->showOne($buyers);
-
+    public function show(Buyer $buyer) {
+        return $this->showOne($buyer);
     }
 
     /**

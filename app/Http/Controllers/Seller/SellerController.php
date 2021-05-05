@@ -43,10 +43,8 @@ class SellerController extends APIController {
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-        $sellers = Seller::has('products')->findOrFail($id);
-
-        return $this->showOne($sellers);
+    public function show(Seller $seller) {
+        return $this->showOne($seller);
     }
 
     /**

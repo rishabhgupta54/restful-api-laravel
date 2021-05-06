@@ -15,8 +15,8 @@ class CreateTransactionsTable extends Migration {
             $table->integer('quantity');
             $table->integer('buyer_id')->unsigned();
             $table->integer('product_id')->unsigned();
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

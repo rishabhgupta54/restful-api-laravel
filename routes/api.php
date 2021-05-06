@@ -43,6 +43,26 @@ Route::resource('categories', \App\Http\Controllers\Category\CategoryController:
     'edit',
 ]);
 
+Route::resource('categories.products', \App\Http\Controllers\Category\CategoryProductController::class)->except([
+    'create',
+    'edit',
+]);
+
+Route::resource('categories.sellers', \App\Http\Controllers\Category\CategorySellerController::class)->except([
+    'create',
+    'edit',
+]);
+
+Route::resource('categories.transactions', \App\Http\Controllers\Category\CategoryTransactionController::class)->except([
+    'create',
+    'edit',
+]);
+
+Route::resource('categories.buyers', \App\Http\Controllers\Category\CategoryBuyerController::class)->except([
+    'create',
+    'edit',
+]);
+
 Route::resource('products', \App\Http\Controllers\Product\ProductController::class)->only([
     'index',
     'show',

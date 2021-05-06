@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder {
      * @return void
      */
     public function run() {
-
         User::truncate();
         Buyer::truncate();
         Seller::truncate();

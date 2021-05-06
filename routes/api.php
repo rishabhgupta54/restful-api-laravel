@@ -42,6 +42,14 @@ Route::resource('transactions', \App\Http\Controllers\Transaction\TransactionCon
     'show',
 ]);
 
+Route::resource('transactions.categories', \App\Http\Controllers\Transaction\TransactionCategoryController::class)->only([
+    'index',
+]);
+
+Route::resource('transactions.sellers', \App\Http\Controllers\Transaction\TransactionSellerController::class)->only([
+    'index',
+]);
+
 Route::resource('users', \App\Http\Controllers\User\UserController::class)->except([
     'create',
     'edit',

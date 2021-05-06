@@ -16,10 +16,10 @@ class Transaction extends Model {
     ];
 
     public function buyers() {
-        return $this->belongTo(Buyer::class);
+        return $this->belongsTo(Buyer::class);
     }
 
     public function product() {
-        return $this->belongTo(Product::class);
+        return $this->belongsTo(Product::class);
     }
 }

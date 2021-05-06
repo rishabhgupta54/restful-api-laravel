@@ -3,18 +3,17 @@
 namespace App\Http\Controllers\Transaction;
 
 use App\Http\Controllers\APIController;
+use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
-class TransactionController extends APIController {
+class TransactionSellerController extends APIController {
     /**
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $transactions = Transaction::all();
-
-        return $this->showAll($transactions);
+    public function index(Transaction $transaction) {
+        return $this->showOne($transaction->product->seller);
     }
 
     /**
@@ -44,7 +43,7 @@ class TransactionController extends APIController {
      * @return \Illuminate\Http\Response
      */
     public function show(Transaction $transaction) {
-        return $this->showOne($transaction);
+        //
     }
 
     /**

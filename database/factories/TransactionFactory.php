@@ -22,7 +22,7 @@ class TransactionFactory extends Factory {
     public function definition() {
 
         $sellers = Seller::has('products')->get()->random();
-        $buyer = User::all()->except()->random();
+        $buyer = User::all()->except($sellers->id)->random();
 
         return [
             'quantity' => $this->faker->numberBetween(1, 3),

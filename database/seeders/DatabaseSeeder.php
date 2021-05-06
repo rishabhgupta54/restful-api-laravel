@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder {
         DB::table('category_product')->truncate();
         User::factory(200)->create();
         Category::factory(30)->create();
-        Product::factory(1000)->create()->each(function($product) {
+        Product::factory(500)->create()->each(function($product) {
             $product->categories()->sync(Category::all()->random(rand(1, 5))->pluck('id'));
         });
-        Transaction::factory(10000)->create();
+        Transaction::factory(1000)->create();
     }
 }

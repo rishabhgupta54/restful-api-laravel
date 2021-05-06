@@ -77,6 +77,10 @@ class Handler extends ExceptionHandler {
             return $this->errorResponse($e->getMessage(), $e->getCode());
         }
 
+        if($e instanceof Exception) {
+
+        }
+
         return $this->errorResponse('Something went wrong, please try again.', $e->getCode());
     }
 

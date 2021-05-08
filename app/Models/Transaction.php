@@ -15,7 +15,7 @@ class Transaction extends Model {
         'product_id',
     ];
 
-    public function buyers() {
+    public function buyer() {
         return $this->belongsTo(Buyer::class);
     }
 

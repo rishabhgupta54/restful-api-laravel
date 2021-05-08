@@ -12,7 +12,7 @@ class CategoryBuyerController extends APIController {
      * @return \Illuminate\Http\Response
      */
     public function index(Category $category) {
-        return $this->showAll($category->products()->whereHas('transactions')->with('transactions.buyers')->get()->pluck('transactions')->collapse()->pluck('buyer')->unique('id')->values());
+        return $this->showAll($category->products()->whereHas('transactions')->with('transactions.buyer')->get()->pluck('transactions')->collapse()->pluck('buyer')->unique('id')->values());
     }
 
     /**

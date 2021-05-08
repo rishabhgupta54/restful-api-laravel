@@ -73,6 +73,19 @@ Route::resource('sellers', \App\Http\Controllers\Seller\SellerController::class)
     'show',
 ]);
 
+Route::resource('sellers.transactions', \App\Http\Controllers\Seller\SellerTransactionController::class)->only([
+    'index',
+]);
+
+Route::resource('sellers.buyers', \App\Http\Controllers\Seller\SellerBuyerController::class)->only([
+    'index',
+]);
+
+Route::resource('sellers.products', \App\Http\Controllers\Seller\SellerProductController::class)->except([
+    'create',
+    'edit',
+]);
+
 Route::resource('transactions', \App\Http\Controllers\Transaction\TransactionController::class)->only([
     'index',
     'show',

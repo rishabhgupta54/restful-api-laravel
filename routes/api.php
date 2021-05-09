@@ -68,6 +68,23 @@ Route::resource('products', \App\Http\Controllers\Product\ProductController::cla
     'show',
 ]);
 
+Route::resource('products.transactions', \App\Http\Controllers\Product\ProductTransactionController::class)->only([
+    'index',
+]);
+
+Route::resource('products.buyers', \App\Http\Controllers\Product\ProductBuyerController::class)->only([
+    'index',
+]);
+
+Route::resource('products.categories', \App\Http\Controllers\Product\ProductCategoryController::class)->except([
+    'create',
+    'edit',
+]);
+
+Route::resource('products.buyers.transactions', \App\Http\Controllers\Product\ProductBuyerTransactionController::class)->only([
+    'store',
+]);
+
 Route::resource('sellers', \App\Http\Controllers\Seller\SellerController::class)->only([
     'index',
     'show',

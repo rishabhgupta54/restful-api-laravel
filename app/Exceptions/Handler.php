@@ -3,21 +3,17 @@
 namespace App\Exceptions;
 
 use App\Traits\APIResponser;
-use function class_basename;
-use function dd;
 use HttpException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
-use Illuminate\Auth\Events\Authenticated;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 use Illuminate\Validation\ValidationException;
-use function response;
-use function strtolower;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Exception\MethodNotAllowedException;
 use Throwable;
+use function class_basename;
 
 class Handler extends ExceptionHandler {
     use APIResponser;
@@ -77,8 +73,8 @@ class Handler extends ExceptionHandler {
             return $this->errorResponse($e->getMessage(), $e->getCode());
         }
 
-        if($e instanceof Exception) {
-
+        if ($e instanceof TokenMismatchException) {
+            return redirect()->back()->withInput($request->input());
         }
 
         return $this->errorResponse('Something went wrong, please try again.', $e->getCode());
